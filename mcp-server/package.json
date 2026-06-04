@@ -1,0 +1,16 @@
+{
+  "name": "context-bridge-mcp",
+  "version": "1.0.0",
+  "description": "MCP Server for sharing AI context across Claude Code and Codex",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "context-bridge-mcp": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  }
+}

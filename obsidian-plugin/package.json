@@ -1,0 +1,16 @@
+{
+  "name": "context-bridge",
+  "version": "1.0.0",
+  "description": "AI context sharing across Claude Code and Codex",
+  "main": "main.js",
+  "scripts": {
+    "build": "node esbuild.config.mjs",
+    "dev": "node esbuild.config.mjs --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.20.0",
+    "obsidian": "latest",
+    "typescript": "^5.0.0"
+  }
+}

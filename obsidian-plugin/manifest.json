@@ -1,0 +1,9 @@
+{
+  "id": "context-bridge",
+  "name": "ContextBridge",
+  "version": "1.0.0",
+  "minAppVersion": "1.0.0",
+  "description": "AI context sharing across Claude Code and Codex",
+  "author": "zouhuan",
+  "isDesktopOnly": true
+}
