@@ -1,5 +1,5 @@
 {
-  "name": "ai-context-sync",
+  "name": "context-bridge-sync",
   "version": "1.0.0",
   "description": "Cross-tool AI context synchronization for Claude Code and Codex. Automatically share context between AI assistants working on the same project.",
   "author": "zoyzouhuan-web",
