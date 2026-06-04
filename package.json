@@ -1,0 +1,51 @@
+{
+  "name": "ai-context-sync",
+  "version": "1.0.0",
+  "description": "Cross-tool AI context synchronization for Claude Code and Codex. Automatically share context between AI assistants working on the same project.",
+  "author": "zoyzouhuan-web",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zoyzouhuan-web/ai-context-sync.git"
+  },
+  "homepage": "https://github.com/zoyzouhuan-web/ai-context-sync",
+  "bugs": {
+    "url": "https://github.com/zoyzouhuan-web/ai-context-sync/issues"
+  },
+  "keywords": [
+    "claude",
+    "codex",
+    "ai",
+    "context",
+    "synchronization",
+    "mcp",
+    "model-context-protocol",
+    "obsidian"
+  ],
+  "type": "module",
+  "main": "mcp-server/index.js",
+  "bin": {
+    "ai-context-sync": "mcp-server/index.js"
+  },
+  "files": [
+    "mcp-server/",
+    "obsidian-plugin/src/",
+    "obsidian-plugin/manifest.json",
+    "obsidian-plugin/esbuild.config.mjs",
+    "docs/",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "start": "node mcp-server/index.js",
+    "build:obsidian": "cd obsidian-plugin && npm run dev",
+    "build:obsidian:prod": "cd obsidian-plugin && npm run esbuild",
+    "postinstall": "echo 'ai-context-sync installed. See README.md for setup instructions.'"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
