@@ -32,24 +32,31 @@ Claude Code                    Codex
 - npm
 - Obsidian（可选，仅用于 UI 可视化）
 
-### 1. MCP Server 安装（Claude Code 和 Codex）
+### 1. 从 NPM 安装
+
+```bash
+# 全局安装（推荐）
+npm install -g context-bridge-sync
+
+# 或者在项目中本地安装
+npm install context-bridge-sync
+```
+
+### 2. MCP Server 注册
 
 #### Claude Code 配置
 
 ```bash
-# 克隆项目
-git clone https://github.com/yourusername/ai-context-sync.git
-cd ai-context-sync
-
 # 注册 MCP Server
-claude mcp add context-sync \
-  node $(pwd)/mcp-server/index.js \
+claude mcp add context-bridge \
+  node "$(npm prefix -g)/lib/node_modules/context-bridge-sync/mcp-server/index.js" \
   -e VAULT_PATH=~/workplace
 ```
 
 检查是否连接成功：
 ```bash
-claude mcp list | grep context-sync
+claude mcp list | grep context-bridge
+# 应该显示：context-bridge: node ... - ✓ Connected
 ```
 
 #### Codex 配置
@@ -57,14 +64,16 @@ claude mcp list | grep context-sync
 在 `~/.codex/config.toml` 中添加：
 
 ```toml
-[mcp_servers.context-sync]
+[mcp_servers.context-bridge]
 type = "stdio"
 command = "node"
-args = ["/path/to/ai-context-sync/mcp-server/index.js"]
+args = ["<npm-global-path>/lib/node_modules/context-bridge-sync/mcp-server/index.js"]
 
-[mcp_servers.context-sync.env]
+[mcp_servers.context-bridge.env]
 VAULT_PATH = "~/workplace"
 ```
+
+> 获取 npm 全局路径：`npm config get prefix`
 
 重启 Codex 后，在 Settings → MCP Servers 中确认已连接。
 
